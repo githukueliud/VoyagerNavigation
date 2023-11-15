@@ -7,35 +7,4 @@ data class Mentee(
     val stack: String
 )
 
-val mentees: List<Mentee> = listOf(
-    Mentee(
-        name = "Eliud Githuku",
-        gender = "Male",
-        githubProfile = "github.com/githukueliud",
-        stack = "Native Android Development"
-    ),
-    Mentee(
-        name = "Eliud Githuku",
-        gender = "Male",
-        githubProfile = "github.com/githukueliud",
-        stack = "Native Android Development"
-    ),
-    Mentee(
-        name = "Eliud Githuku",
-        gender = "Male",
-        githubProfile = "github.com/githukueliud",
-        stack = "Native Android Development"
-    ),
-    Mentee(
-        name = "Eliud Githuku",
-        gender = "Male",
-        githubProfile = "github.com/githukueliud",
-        stack = "Native Android Development"
-    ),
-    Mentee(
-        name = "Eliud Githuku",
-        gender = "Male",
-        githubProfile = "github.com/githukueliud",
-        stack = "Native Android Development"
-    )
-)
+
