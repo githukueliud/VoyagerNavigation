@@ -6,22 +6,28 @@ import androidx.compose.runtime.Composable
 import cafe.adriel.voyager.core.screen.Screen
 
 
-//object AboutMenteeScreen : Screen {
-//    @Composable
-//    override fun Content() {
-//        TODO("Not yet implemented")
-//    }
-//
-//}
+data class AboutMenteeScreen(val mentee: Mentee) : Screen {
+    @Composable
+    override fun Content() {
+        TODO("Not yet implemented")
+    }
 
+    @Composable
+    fun About() {
+        Column {
 
-@Composable
-fun AboutMenteeScreen(name: String) {
-    Column {
-        Text(text = "Thank you for showing interest in our android mentees.")
-        Text(text = "Mentee name is: $name")
-        Text(text = "Mentee gender is: $name")
-        Text(text = "Mentee stack is: $name")
-        Text(text = "Mentee github profile is: $name")
+        }
     }
 }
+
+
+//@Composable
+//fun AboutMenteeScreen(name: String) {
+//    Column {
+//        Text(text = "Thank you for showing interest in our android mentees.")
+//        Text(text = "Mentee name is: $name")
+//        Text(text = "Mentee gender is: $name")
+//        Text(text = "Mentee stack is: $name")
+//        Text(text = "Mentee github profile is: $name")
+//    }
+//}
