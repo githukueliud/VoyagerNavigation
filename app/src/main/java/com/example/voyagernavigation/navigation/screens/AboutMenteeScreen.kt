@@ -6,16 +6,16 @@ import androidx.compose.runtime.Composable
 import cafe.adriel.voyager.core.screen.Screen
 
 
-data class AboutMenteeScreen(val mentee: Mentee) : Screen {
+object AboutMenteeScreen : Screen {
     @Composable
     override fun Content() {
-        TODO("Not yet implemented")
+        About()
     }
 
     @Composable
     fun About() {
         Column {
-
+            Text(text = "Hello from about")
         }
     }
 }

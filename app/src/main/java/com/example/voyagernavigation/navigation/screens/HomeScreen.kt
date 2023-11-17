@@ -34,7 +34,7 @@ object HomeScreen : Screen {
 object MenteeList: Screen {
     @Composable
     override fun Content() {
-        TODO("Not yet implemented")
+        Text(text = "Hello from me")
     }
 
 
