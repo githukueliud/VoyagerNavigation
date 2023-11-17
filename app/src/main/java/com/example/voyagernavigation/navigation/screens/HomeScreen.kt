@@ -15,6 +15,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -131,8 +132,10 @@ object MentorList: Screen {
 
 object MenteeList: Screen {
     val allMentees = Data.mentees
+    @OptIn(ExperimentalMaterial3Api::class)
     @Composable
     override fun Content() {
+        val navigator = LocalNavigator.currentOrThrow
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -140,14 +143,24 @@ object MenteeList: Screen {
             horizontalAlignment = Alignment.CenterHorizontally
         ){
             Text(text = "Here is a list of the Android team mentees")
+            Text(text = "To learn more about them, click on their cards")
             Spacer(modifier = Modifier.height(10.dp))
             LazyColumn{
                 items(allMentees) {mentee ->
-                    Card {
-                        Text(text = "Name: ${mentee.name}")
-                        Text(text = "Gender: ${mentee.gender}")
-                        Text(text = "Github: ${mentee.githubProfile}")
-                        Text(text = "Stack: ${mentee.stack}")
+                    Card(
+                        modifier = Modifier
+                            .height(70.dp)
+                            .width(300.dp),
+                        onClick = {
+                            navigator.push(AboutMenteeScreen(mentee))
+                        }
+                    ) {
+                        Column(
+                            modifier = Modifier.padding(5.dp)
+                        ){
+                            Text(text = "Name: ${mentee.name}")
+                            Text(text = "Stack: ${mentee.stack}")
+                        }
                     }
                     Spacer(modifier = Modifier.height(10.dp))
                 }
@@ -157,56 +170,5 @@ object MenteeList: Screen {
     }
 
 
-//    @OptIn(ExperimentalMaterial3Api::class)
-//    @Composable
-//    fun MenteeListScreen(
-//        mentee: Mentee,
-//        navigateToMenteeDetailsScreen: (name: String) -> Unit
-//    ) {
-//        val mentees: List<Mentee> = listOf(
-//            Mentee(
-//                name = "Eliud Githuku",
-//                gender = "Male",
-//                githubProfile = "github.com/githukueliud",
-//                stack = "Native Android Development"
-//            ),
-//            Mentee(
-//                name = "Eliud Githuku",
-//                gender = "Male",
-//                githubProfile = "github.com/githukueliud",
-//                stack = "Native Android Development"
-//            ),
-//            Mentee(
-//                name = "Eliud Githuku",
-//                gender = "Male",
-//                githubProfile = "github.com/githukueliud",
-//                stack = "Native Android Development"
-//            ),
-//            Mentee(
-//                name = "Eliud Githuku",
-//                gender = "Male",
-//                githubProfile = "github.com/githukueliud",
-//                stack = "Native Android Development"
-//            ),
-//            Mentee(
-//                name = "Eliud Githuku",
-//                gender = "Male",
-//                githubProfile = "github.com/githukueliud",
-//                stack = "Native Android Development"
-//            )
-//        )
-//
-//        LazyColumn {
-//            items(mentees) {
-//                Card(
-//                    onClick = { navigateToMenteeDetailsScreen(mentee.name) }
-//                ) {
-//                    Text(text = "Mentee name is: ${mentee.name}")
-//                    Text(text = "Mentee stack is: ${mentee.stack}")
-//                }
-//            }
-//        }
-//
-//    }
 }
 

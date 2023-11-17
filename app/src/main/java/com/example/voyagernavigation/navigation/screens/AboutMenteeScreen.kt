@@ -18,21 +18,13 @@ data class AboutMenteeScreen(val mentee: Mentee) : Screen {
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
-            Text(text = "Name is: ${mentee.name}")
+            Text(text = "Mentee name is: ${mentee.name}")
+            Text(text = "Mentee github profile is: ${mentee.githubProfile}")
+            Text(text = "Mentee gender is: ${mentee.gender}")
+            Text(text = "Mentee stack is: ${mentee.stack}")
         }
     }
 
 
 }
 
-
-//@Composable
-//fun AboutMenteeScreen(name: String) {
-//    Column {
-//        Text(text = "Thank you for showing interest in our android mentees.")
-//        Text(text = "Mentee name is: $name")
-//        Text(text = "Mentee gender is: $name")
-//        Text(text = "Mentee stack is: $name")
-//        Text(text = "Mentee github profile is: $name")
-//    }
-//}
