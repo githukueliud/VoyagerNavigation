@@ -9,6 +9,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
@@ -25,13 +27,15 @@ import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
 
 
-object HomeScreen : Screen {
+object HomeScreen: Screen {
 
     @Composable
     override fun Content() {
         val navigator = LocalNavigator.currentOrThrow
         Column(
-            modifier = Modifier.fillMaxSize().padding(10.dp),
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(10.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ){
             Text(
@@ -41,7 +45,9 @@ object HomeScreen : Screen {
             Text(text = "To have an idea of who our mentees are, kindly click on their card to learn more about them")
 
             Row(
-                modifier = Modifier.fillMaxWidth().padding(top = 10.dp),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 10.dp),
                 horizontalArrangement = Arrangement.Center
             ){
                 Button(
@@ -124,6 +130,7 @@ object MentorList: Screen {
 
 
 object MenteeList: Screen {
+    val allMentees = Data.mentees
     @Composable
     override fun Content() {
         Column(
@@ -134,194 +141,17 @@ object MenteeList: Screen {
         ){
             Text(text = "Here is a list of the Android team mentees")
             Spacer(modifier = Modifier.height(10.dp))
-            Card(
-                colors = CardDefaults.cardColors(
-                    containerColor = Color.LightGray,
-                    contentColor = Color.Black
-                ),
-                modifier = Modifier
-                    .height(120.dp)
-                    .width(300.dp)
-            ) {
-                Column(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .padding(16.dp),
-                    horizontalAlignment = Alignment.CenterHorizontally
-                ) {
-                    Text(
-                        text = "Name: Eliud Githuku",
-                        modifier = Modifier.fillMaxWidth(),
-                        textAlign = TextAlign.Start
-                    )
-                    Text(
-                        text = "Github: github.com/githukueliud",
-                        modifier = Modifier.fillMaxWidth(),
-                        textAlign = TextAlign.Start
-                    )
-                    Text(
-                        text = "Gender: Male",
-                        modifier = Modifier.fillMaxWidth(),
-                        textAlign = TextAlign.Start
-                    )
-                    Text(
-                        text = "Stack: Native Android",
-                        modifier = Modifier.fillMaxWidth(),
-                        textAlign = TextAlign.Start
-                    )
+            LazyColumn{
+                items(allMentees) {mentee ->
+                    Card {
+                        Text(text = "Name: ${mentee.name}")
+                        Text(text = "Gender: ${mentee.gender}")
+                        Text(text = "Github: ${mentee.githubProfile}")
+                        Text(text = "Stack: ${mentee.stack}")
+                    }
+                    Spacer(modifier = Modifier.height(10.dp))
                 }
-            }
-            Spacer(modifier = Modifier.height(10.dp))
-            Card(
-                colors = CardDefaults.cardColors(
-                    containerColor = Color.LightGray,
-                    contentColor = Color.Black
-                ),
-                modifier = Modifier
-                    .height(120.dp)
-                    .width(300.dp)
-            ) {
-                Column(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .padding(16.dp),
-                    horizontalAlignment = Alignment.CenterHorizontally
-                ) {
-                    Text(
-                        text = "Name: Eliud Githuku",
-                        modifier = Modifier.fillMaxWidth(),
-                        textAlign = TextAlign.Start
-                    )
-                    Text(
-                        text = "Github: github.com/githukueliud",
-                        modifier = Modifier.fillMaxWidth(),
-                        textAlign = TextAlign.Start
-                    )
-                    Text(
-                        text = "Gender: Male",
-                        modifier = Modifier.fillMaxWidth(),
-                        textAlign = TextAlign.Start
-                    )
-                    Text(
-                        text = "Stack: Native Android",
-                        modifier = Modifier.fillMaxWidth(),
-                        textAlign = TextAlign.Start
-                    )
-                }
-            }
-            Spacer(modifier = Modifier.height(10.dp))
-            Card(
-                colors = CardDefaults.cardColors(
-                    containerColor = Color.LightGray,
-                    contentColor = Color.Black
-                ),
-                modifier = Modifier
-                    .height(120.dp)
-                    .width(300.dp)
-            ) {
-                Column(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .padding(16.dp),
-                    horizontalAlignment = Alignment.CenterHorizontally
-                ) {
-                    Text(
-                        text = "Name: Eliud Githuku",
-                        modifier = Modifier.fillMaxWidth(),
-                        textAlign = TextAlign.Start
-                    )
-                    Text(
-                        text = "Github: github.com/githukueliud",
-                        modifier = Modifier.fillMaxWidth(),
-                        textAlign = TextAlign.Start
-                    )
-                    Text(
-                        text = "Gender: Male",
-                        modifier = Modifier.fillMaxWidth(),
-                        textAlign = TextAlign.Start
-                    )
-                    Text(
-                        text = "Stack: Native Android",
-                        modifier = Modifier.fillMaxWidth(),
-                        textAlign = TextAlign.Start
-                    )
-                }
-            }
-            Spacer(modifier = Modifier.height(10.dp))
-            Card(
-                colors = CardDefaults.cardColors(
-                    containerColor = Color.LightGray,
-                    contentColor = Color.Black
-                ),
-                modifier = Modifier
-                    .height(120.dp)
-                    .width(300.dp)
-            ) {
-                Column(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .padding(16.dp),
-                    horizontalAlignment = Alignment.CenterHorizontally
-                ) {
-                    Text(
-                        text = "Name: Eliud Githuku",
-                        modifier = Modifier.fillMaxWidth(),
-                        textAlign = TextAlign.Start
-                    )
-                    Text(
-                        text = "Github: github.com/githukueliud",
-                        modifier = Modifier.fillMaxWidth(),
-                        textAlign = TextAlign.Start
-                    )
-                    Text(
-                        text = "Gender: Male",
-                        modifier = Modifier.fillMaxWidth(),
-                        textAlign = TextAlign.Start
-                    )
-                    Text(
-                        text = "Stack: Native Android",
-                        modifier = Modifier.fillMaxWidth(),
-                        textAlign = TextAlign.Start
-                    )
-                }
-            }
-            Spacer(modifier = Modifier.height(10.dp))
-            Card(
-                colors = CardDefaults.cardColors(
-                    containerColor = Color.LightGray,
-                    contentColor = Color.Black
-                ),
-                modifier = Modifier
-                    .height(120.dp)
-                    .width(300.dp)
-            ) {
-                Column(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .padding(16.dp),
-                    horizontalAlignment = Alignment.CenterHorizontally
-                ) {
-                    Text(
-                        text = "Name: Eliud Githuku",
-                        modifier = Modifier.fillMaxWidth(),
-                        textAlign = TextAlign.Start
-                    )
-                    Text(
-                        text = "Github: github.com/githukueliud",
-                        modifier = Modifier.fillMaxWidth(),
-                        textAlign = TextAlign.Start
-                    )
-                    Text(
-                        text = "Gender: Male",
-                        modifier = Modifier.fillMaxWidth(),
-                        textAlign = TextAlign.Start
-                    )
-                    Text(
-                        text = "Stack: Native Android",
-                        modifier = Modifier.fillMaxWidth(),
-                        textAlign = TextAlign.Start
-                    )
-                }
+
             }
         }
     }

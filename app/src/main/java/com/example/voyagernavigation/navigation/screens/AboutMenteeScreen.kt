@@ -1,23 +1,28 @@
 package com.example.voyagernavigation.navigation.screens
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
 import cafe.adriel.voyager.core.screen.Screen
 
 
-object AboutMenteeScreen : Screen {
+data class AboutMenteeScreen(val mentee: Mentee) : Screen {
     @Composable
     override fun Content() {
-        About()
-    }
-
-    @Composable
-    fun About() {
-        Column {
-            Text(text = "Hello from about")
+        Column(
+            modifier = Modifier.fillMaxSize(),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
+        ) {
+            Text(text = "Name is: ${mentee.name}")
         }
     }
+
+
 }
 
 
