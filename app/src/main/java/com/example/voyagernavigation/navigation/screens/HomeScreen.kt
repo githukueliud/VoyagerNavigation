@@ -23,6 +23,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
@@ -37,13 +38,21 @@ object HomeScreen: Screen {
             modifier = Modifier
                 .fillMaxSize()
                 .padding(10.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
         ){
-            Text(
-                text = "Hello this is a list of Android mentees in the Mentorlst mentorship program first cohort for the period between November 2023 to January 2024. Want to learn more about them? Click on the card to learn more"
-            )
 
-            Text(text = "To have an idea of who our mentees are, kindly click on their card to learn more about them")
+            Text(
+                text = "Mentorlst is a mentorship program aimed at helping newbies get the bridge necessary for their career growth",
+                fontSize = 22.sp
+            )
+            Text(text = "There are different tracks available for mentorship within the organization. In this app, we'll only focus on the android track",
+                fontSize = 18.sp
+            )
+            Text(
+                text = "To have an idea of who our mentees are, kindly click on their card to learn more about them",
+                fontSize = 18.sp
+            )
 
             Row(
                 modifier = Modifier
@@ -79,49 +88,48 @@ object HomeScreen: Screen {
 
 
 object MentorList: Screen {
+    private val allMentors = Mentors.mentors
+    @OptIn(ExperimentalMaterial3Api::class)
     @Composable
     override fun Content() {
+        val navigator = LocalNavigator.currentOrThrow
         Column(
             modifier = Modifier.fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(text = "Here is a list of our Android Mentors")
             Spacer(modifier = Modifier.height(10.dp))
-            Card(
-                colors = CardDefaults.cardColors(
-                    containerColor = Color.LightGray,
-                    contentColor = Color.Black
-                ),
-                modifier = Modifier
-                    .height(120.dp)
-                    .width(300.dp)
-            ) {
-                Column(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .padding(16.dp),
-                    horizontalAlignment = Alignment.CenterHorizontally
-                ) {
-                    Text(
-                        text = "Name: Rachel",
-                        modifier = Modifier.fillMaxWidth(),
-                        textAlign = TextAlign.Start
-                    )
-                    Text(
-                        text = "Github: TBD",
-                        modifier = Modifier.fillMaxWidth(),
-                        textAlign = TextAlign.Start
-                    )
-                    Text(
-                        text = "Gender: Female",
-                        modifier = Modifier.fillMaxWidth(),
-                        textAlign = TextAlign.Start
-                    )
-                    Text(
-                        text = "Stack: Native Android",
-                        modifier = Modifier.fillMaxWidth(),
-                        textAlign = TextAlign.Start
-                    )
+            LazyColumn{
+                items(allMentors) {mentor ->
+                    Card(
+                        colors = CardDefaults.cardColors(
+                            containerColor = Color.LightGray,
+                            contentColor = Color.Black
+                        ),
+                        modifier = Modifier
+                            .height(80.dp)
+                            .width(300.dp),
+                        onClick = { navigator.push(AboutMentorScreen(mentor)) }
+                    ) {
+                        Column(
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .padding(16.dp),
+                            horizontalAlignment = Alignment.CenterHorizontally
+                        ) {
+                            Text(
+                                text = "Name: ${mentor.name}",
+                                modifier = Modifier.fillMaxWidth(),
+                                textAlign = TextAlign.Start
+                            )
+                            Text(
+                                text = "Stack: ${mentor.stack}",
+                                modifier = Modifier.fillMaxWidth(),
+                                textAlign = TextAlign.Start
+                            )
+                        }
+                    }
+                    Spacer(modifier = Modifier.height(10.dp))
                 }
             }
         }
@@ -131,7 +139,7 @@ object MentorList: Screen {
 
 
 object MenteeList: Screen {
-    val allMentees = Data.mentees
+    private val allMentees = Data.mentees
     @OptIn(ExperimentalMaterial3Api::class)
     @Composable
     override fun Content() {
