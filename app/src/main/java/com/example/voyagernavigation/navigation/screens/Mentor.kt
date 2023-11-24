@@ -1,10 +1,14 @@
 package com.example.voyagernavigation.navigation.screens
 
+import androidx.annotation.DrawableRes
+import com.example.voyagernavigation.R
+
 data class Mentor(
     val name: String,
     val gender: String,
     val githubProfile: String,
-    val stack: String
+    val stack: String,
+    @DrawableRes val mentorImage: Int
 )
 
 object Mentors {
@@ -13,37 +17,43 @@ object Mentors {
             name = "Rachel",
             gender = "Female",
             githubProfile = "TBD",
-            stack = "Android"
+            stack = "Android",
+            mentorImage = R.drawable.mboto_2
         ),
         Mentor(
-            name = "Rachel",
-            gender = "Female",
+            name = "Fred",
+            gender = "Male",
             githubProfile = "TBD",
-            stack = "Android"
+            stack = "Backend",
+            mentorImage = R.drawable.mboto_2
         ),
         Mentor(
-            name = "Rachel",
-            gender = "Female",
+            name = "Eliud",
+            gender = "Male",
             githubProfile = "TBD",
-            stack = "Android"
+            stack = "Android",
+            mentorImage = R.drawable.mboto_2
         ),
         Mentor(
-            name = "Rachel",
-            gender = "Female",
+            name = "Jake Harper",
+            gender = "Male",
             githubProfile = "TBD",
-            stack = "Android"
+            stack = "Android",
+            mentorImage = R.drawable.mboto_2
         ),
         Mentor(
-            name = "Rachel",
-            gender = "Female",
+            name = "Chandler Bing",
+            gender = "Male",
             githubProfile = "TBD",
-            stack = "Android"
+            stack = "Android",
+            mentorImage = R.drawable.mboto_2
         ),
         Mentor(
-            name = "Rachel",
-            gender = "Female",
+            name = "Thomas Shelby",
+            gender = "Male",
             githubProfile = "TBD",
-            stack = "Android"
+            stack = "Android",
+            mentorImage = R.drawable.mboto_2
         )
     )
 }
