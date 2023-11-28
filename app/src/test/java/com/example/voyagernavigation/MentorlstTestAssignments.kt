@@ -36,7 +36,21 @@ class MentorlstTestAssignments {
 
 
     @Test
-    fun testPrivateMethod() {}
+    fun testPrivateMethod() {
+        //set the number of members
+        viewModel.numberOfMentees = 2
+        viewModel.numberOfMentors = 2
+
+        //make the private method accessible through reflection
+        val method = viewModel::class.java.getDeclaredMethod("setTotalNumberOfPeople")
+        method.isAccessible = true
+        val result = method.invoke(viewModel)
+
+
+
+
+        assertEquals(4, result)
+    }
 
 
     @Test
