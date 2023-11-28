@@ -85,7 +85,7 @@ dependencies {
     implementation("cafe.adriel.voyager:voyager-androidx:$voyagerVersion")
 
     //voyager testing
-    implementation ("com.github.yesterselga:Voyager-compose:1.4.0")
-    testImplementation ("com.github.yesterselga:Voyager-compose-testing:1.4.0")
-    androidTestImplementation ("com.github.yesterselga:Voyager-compose-testing:1.4.0")
+//    implementation ("com.github.yesterselga:Voyager-compose:1.4.0")
+//    testImplementation ("com.github.yesterselga:Voyager-compose-testing:1.4.0")
+//    androidTestImplementation ("com.github.yesterselga:Voyager-compose-testing:1.4.0")
 }

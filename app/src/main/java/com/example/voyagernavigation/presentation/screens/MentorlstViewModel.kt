@@ -13,4 +13,8 @@ class MentorlstViewModel: ViewModel() {
     fun setNumberOfMentees() {
         numberOfMentees++
     }
+
+    private fun setTotalNumberOfPeople() {
+        numberOfMentees + numberOfMentors
+    }
 }
