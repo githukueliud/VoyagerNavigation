@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -23,6 +24,7 @@ import cafe.adriel.voyager.navigator.currentOrThrow
 
 
 object HomeScreen: Screen {
+    val viewModel = MentorlstViewModel()
     @Composable
     override fun Content() {
         val navigator = LocalNavigator.currentOrThrow
@@ -71,7 +73,20 @@ object HomeScreen: Screen {
                 ) {
                     Text(text = "Mentors")
                 }
+
+                Spacer(modifier = Modifier.height(20.dp))
+                Text(text = "Number of mentors is: ${viewModel.numberOfMentors}")
+                Text(text = "Number of mentees is: ${viewModel.numberOfMentees}")
+                Text(text = "To add a mentor, just click on the button")
+                Button(onClick = { viewModel.setNumberOfMentors() }) {
+                    Text(text = "Add a mentor")
+                }
+                Text(text = "To add a mentee, just click on the button")
+                Button(onClick = { viewModel.setNumberOfMentees() }) {
+                    Text(text = "Add a mentee")
+                }
             }
+
         }
     }
 }
