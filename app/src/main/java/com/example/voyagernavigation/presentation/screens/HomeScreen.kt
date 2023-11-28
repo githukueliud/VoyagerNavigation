@@ -23,7 +23,6 @@ import cafe.adriel.voyager.navigator.currentOrThrow
 
 
 object HomeScreen: Screen {
-
     @Composable
     override fun Content() {
         val navigator = LocalNavigator.currentOrThrow
@@ -75,8 +74,6 @@ object HomeScreen: Screen {
             }
         }
     }
-
-
 }
 
 
