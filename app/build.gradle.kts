@@ -67,6 +67,9 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
+    //test
+    testImplementation("org.jetbrains.kotlin:kotlin-test-junit5:1.5.31")
+
     val voyagerVersion = "1.0.0-rc10"
 
     // Navigator

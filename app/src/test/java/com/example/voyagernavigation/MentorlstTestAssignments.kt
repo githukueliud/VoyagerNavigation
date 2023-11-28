@@ -4,7 +4,7 @@ package com.example.voyagernavigation
 import com.example.voyagernavigation.presentation.screens.MentorlstViewModel
 import org.junit.Assert.assertEquals
 import org.junit.Before
-import org.junit.Rule
+import kotlin.test.assertFailsWith
 import org.junit.Test
 
 class MentorlstTestAssignments {
@@ -46,15 +46,17 @@ class MentorlstTestAssignments {
         method.isAccessible = true
         val result = method.invoke(viewModel)
 
-
-
-
+        //perform the test
         assertEquals(4, result)
     }
 
 
     @Test
-    fun testMethodWithException() {}
+    fun testMethodWithException() {
+        assertFailsWith<Exception> {
+            viewModel.connectToInternet()
+        }
+    }
 
 
 }
