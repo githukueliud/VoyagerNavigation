@@ -1,4 +1,4 @@
-package com.example.voyagernavigation.navigation.screens
+package com.example.voyagernavigation.presentation.screens
 
 data class Mentee(
     val name: String,

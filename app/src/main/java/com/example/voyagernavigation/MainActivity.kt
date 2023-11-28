@@ -11,7 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import cafe.adriel.voyager.navigator.Navigator
-import com.example.voyagernavigation.navigation.screens.HomeScreen
+import com.example.voyagernavigation.presentation.screens.HomeScreen
 import com.example.voyagernavigation.ui.theme.VoyagerNavigationTheme
 
 class MainActivity : ComponentActivity() {

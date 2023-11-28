@@ -1,4 +1,4 @@
-package com.example.voyagernavigation.navigation.screens
+package com.example.voyagernavigation.presentation.screens
 
 import androidx.annotation.DrawableRes
 import com.example.voyagernavigation.R

@@ -1,4 +1,4 @@
-package com.example.voyagernavigation.navigation.screens
+package com.example.voyagernavigation.presentation.screens
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -100,7 +100,7 @@ object MentorList: Screen {
             Text(text = "Here is a list of our Android Mentors")
             Spacer(modifier = Modifier.height(10.dp))
             LazyColumn{
-                items(allMentors) {mentor ->
+                items(allMentors) { mentor ->
                     Card(
                         colors = CardDefaults.cardColors(
                             containerColor = Color.LightGray,
@@ -154,7 +154,7 @@ object MenteeList: Screen {
             Text(text = "To learn more about them, click on their cards")
             Spacer(modifier = Modifier.height(10.dp))
             LazyColumn{
-                items(allMentees) {mentee ->
+                items(allMentees) { mentee ->
                     Card(
                         modifier = Modifier
                             .height(70.dp)
